@@ -1,16 +1,19 @@
+using System;
+using TMPro;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Host()
     {
-        
+        NetworkManager.Singleton.StartHost();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Join()
     {
-        
+        NetworkManager.Singleton.StartClient();
     }
 }
