@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
         float x = sensitivity * -mouseVector.y;
         
         // Rotate player/parent around y-axis.
-        playerRoot.parent.Rotate(0.0f, y, 0.0f);
+        playerRoot.Rotate(0.0f, y, 0.0f);
         
         // Rotate camera-pivot around x-axis.
         cameraPivotTransform.Rotate(x, 0.0f, 0.0f);
