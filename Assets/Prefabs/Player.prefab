@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6067324144635399633}
   - component: {fileID: 5708931631590903775}
   - component: {fileID: 1455280295543848101}
+  - component: {fileID: 5393185217147235011}
   m_Layer: 0
   m_Name: Third Person Aim Camera
   m_TagString: Untagged
@@ -153,6 +154,26 @@ MonoBehaviour:
   IgnoreTag: 
   AimDistance: 200
   NoiseCancellation: 1
+--- !u!114 &5393185217147235011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960659945262383559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38c31c16b29e6c4097735ec87ad4220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  mouseMovement: {fileID: 6505881229183601771}
+  sensitivity: 1
+  playerRoot: {fileID: 7695362128415893005}
+  cameraPivotTransform: {fileID: 2042407461264218136}
+  cinemachineCamera: {fileID: 6067324144635399633}
+  thirdPersonFollow: {fileID: 5708931631590903775}
+  thirdPersonAim: {fileID: 1455280295543848101}
 --- !u!1 &3793110021918006206
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,10 +187,10 @@ GameObject:
   - component: {fileID: 1009564678302168182}
   - component: {fileID: 662811659300329901}
   - component: {fileID: 3635120328443771704}
+  - component: {fileID: 1045644889113547704}
   - component: {fileID: 7886768812940009639}
   - component: {fileID: 6505881229183601771}
   - component: {fileID: 5958953959119873162}
-  - component: {fileID: 948369997073631975}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -300,6 +321,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1045644889113547704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793110021918006206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cf311906117b340be195f584091aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  mouseMovement: {fileID: 6505881229183601771}
+  playerInput: {fileID: 7886768812940009639}
+  cameraController: {fileID: 5393185217147235011}
+  movementController: {fileID: 5958953959119873162}
 --- !u!114 &7886768812940009639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,22 +378,6 @@ MonoBehaviour:
   playerInput: {fileID: 7886768812940009639}
   movementSpeed: 25
   maxSpeed: 40
---- !u!114 &948369997073631975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793110021918006206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c38c31c16b29e6c4097735ec87ad4220, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseMovement: {fileID: 6505881229183601771}
-  sensitivity: 1
-  playerRoot: {fileID: 7695362128415893005}
-  cameraPivotTransform: {fileID: 2042407461264218136}
 --- !u!1 &4957877489913598481
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
+using Unity.Cinemachine;
+using Unity.Netcode;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class PlayerCameraController : NetworkBehaviour
 {
     [SerializeField] private PlayerMouseMovement mouseMovement;
 
@@ -8,6 +10,20 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] private Transform playerRoot;
     [SerializeField] private Transform cameraPivotTransform;
+    
+    // Cinemachine
+    [SerializeField] private CinemachineCamera cinemachineCamera;
+    [SerializeField] private CinemachineThirdPersonFollow thirdPersonFollow;
+    [SerializeField] private CinemachineThirdPersonAim thirdPersonAim;
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        
+        cinemachineCamera.enabled = IsOwner;
+        thirdPersonFollow.enabled = IsOwner;
+        thirdPersonAim.enabled = IsOwner;
+    }
 
     private void Update()
     {
