@@ -15,7 +15,7 @@ public class Chat : NetworkBehaviour
         }
     }
 
-    [Rpc(SendTo.Everyone)]
+    [Rpc(SendTo.Everyone, Delivery = RpcDelivery.Reliable)]
     private void SendMessageRpc(string messageName, string messageText)
     {
         var newMessage = Instantiate(message, messageBox.transform);
