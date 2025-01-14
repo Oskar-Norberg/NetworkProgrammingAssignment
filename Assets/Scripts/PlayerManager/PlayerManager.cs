@@ -9,7 +9,17 @@ public class PlayerManager : NetworkBehaviour
 
     private int nrOfPlayers => NetworkManager.Singleton.ConnectedClients.Count;
     
-    List<NetworkObject> players = new List<NetworkObject>();
+    Dictionary<ulong, Player> players = new Dictionary<ulong, Player>();
+    
+    public static PlayerManager Instance { get; private set; }
+
+    private void Start()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public override void OnNetworkSpawn()
     {
@@ -31,6 +41,12 @@ public class PlayerManager : NetworkBehaviour
         print("spawn player");
         NetworkSpawnManager spawnManager = NetworkManager.Singleton.SpawnManager;
         NetworkObject player = spawnManager.InstantiateAndSpawn(playerPrefab, clientId);
-        players.Add(player);
+        
+        players[clientId] = player.GetComponent<Player>();
+    }
+
+    public Player GetPlayer(ulong clientId)
+    {
+        return players[clientId];
     }
 }
