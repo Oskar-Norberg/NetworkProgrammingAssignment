@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7774869549458783556}
   - component: {fileID: 4873699550731176912}
   - component: {fileID: 1973801741624935372}
+  - component: {fileID: 6132200965556965752}
   m_Layer: 5
   m_Name: Message
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 350, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &4873699550731176912
 MonoBehaviour:
@@ -79,6 +80,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
+--- !u!114 &6132200965556965752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593172663398166249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa35deb671dc0f4883a935971724ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 848254525457937445}
+  messageText: {fileID: 8008204743480285418}
 --- !u!1 &2824570570486800970
 GameObject:
   m_ObjectHideFlags: 0
