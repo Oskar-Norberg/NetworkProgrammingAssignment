@@ -11,12 +11,23 @@ public class Chat : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SendMessageRpc(OwnerClientId + "", "test text");
+            SendMessageToServerRpc("test text");
         }
     }
 
+    [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
+    private void SendMessageToServerRpc(string messageText, RpcParams rpcParams = default)
+    {
+        if (!IsServer || !IsHost) return;
+
+        ulong playerId = rpcParams.Receive.SenderClientId;
+        string messageName = PlayerManager.Instance.GetPlayer(playerId).name;
+        
+        SendMessageToEveryoneRpc(messageName, messageText);
+    }
+
     [Rpc(SendTo.Everyone, Delivery = RpcDelivery.Reliable)]
-    private void SendMessageRpc(string messageName, string messageText)
+    private void SendMessageToEveryoneRpc(string messageName, string messageText)
     {
         var newMessage = Instantiate(message, messageBox.transform);
         Message m = newMessage.GetComponent<Message>();

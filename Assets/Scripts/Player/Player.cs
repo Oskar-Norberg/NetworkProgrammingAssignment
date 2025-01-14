@@ -9,6 +9,8 @@ public class Player : NetworkBehaviour
     [SerializeField] private PlayerCameraController cameraController;
 
     [SerializeField] private PlayerMovementController movementController;
+
+    private string name = "test name";
     
     public override void OnNetworkSpawn()
     {
