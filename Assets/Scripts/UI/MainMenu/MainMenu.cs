@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public void Host()
     {
         NetworkManager.Singleton.StartHost();
-        SceneManager.LoadScene(sceneName);
+        NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
     public void Join()
