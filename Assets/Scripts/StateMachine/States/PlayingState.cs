@@ -19,6 +19,10 @@ public class PlayingState : GameState
         {
             stateMachine.SwitchState<ChatState>();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            stateMachine.SwitchState<PauseState>();
+        }
         
         PlayerManager.Instance.CustomUpdate(Time.deltaTime);
     }
