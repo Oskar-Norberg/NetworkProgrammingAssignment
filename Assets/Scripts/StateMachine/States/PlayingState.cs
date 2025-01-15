@@ -2,26 +2,23 @@ using UnityEngine;
 
 public class PlayingState : GameState
 {
-    [Header("Managers")] 
-    [SerializeField] private PlayerManager playerManager;
-    
     public override void EnterState(StateMachine stateMachine)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entered PlayingState");
     }
 
     public override void ExitState(StateMachine stateMachine)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Exit PlayingState");
     }
 
     public override void UpdateState(StateMachine stateMachine)
     {
-        playerManager.CustomUpdate(Time.deltaTime);
+        PlayerManager.Instance.CustomUpdate(Time.deltaTime);
     }
     
     public override void FixedUpdateState(StateMachine stateMachine)
     {
-        playerManager.CustomFixedUpdate(Time.fixedDeltaTime);
+        PlayerManager.Instance.CustomFixedUpdate(Time.fixedDeltaTime);
     }
 }

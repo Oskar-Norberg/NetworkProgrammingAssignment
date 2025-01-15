@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StateMachine : MonoBehaviour
 {
@@ -11,10 +8,8 @@ public class StateMachine : MonoBehaviour
 
     private void Start()
     {
-        
-        // TODO: Fix
-        // Start in Playing Game State
-        //SwitchState<PlayingGameState>();
+        // Start in PlayingState
+        SwitchState<PlayingState>();
     }
 
     public void SwitchState<TNextState>()

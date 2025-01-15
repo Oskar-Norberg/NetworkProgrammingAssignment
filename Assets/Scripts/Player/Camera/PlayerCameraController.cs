@@ -40,6 +40,6 @@ public class PlayerCameraController : NetworkBehaviour, IUpdateable
 
     public void CustomFixedUpdate(float fixedDeltaTime)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

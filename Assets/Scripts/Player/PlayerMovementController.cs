@@ -12,7 +12,7 @@ public class PlayerMovementController : MonoBehaviour, IUpdateable
 
     public void CustomUpdate(float deltaTime)
     {
-        throw new NotImplementedException();
+        
     }
 
     public void CustomFixedUpdate(float fixedDeltaTime)
