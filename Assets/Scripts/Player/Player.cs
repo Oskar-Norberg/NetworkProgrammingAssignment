@@ -9,7 +9,8 @@ public class Player : NetworkBehaviour, IUpdateable
     [SerializeField] private PlayerCameraController cameraController;
 
     [SerializeField] private PlayerMovementController movementController;
-
+    
+    public static Player Instance { get; private set; }
     
     // TODO: Set this via UI somehow.
     // Make a proper set name system. Where the player tries a name, sends it to the server and gets back whether or not it is taken.
@@ -18,6 +19,11 @@ public class Player : NetworkBehaviour, IUpdateable
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+
+        if (IsOwner)
+        {
+            Instance = this;
+        }
         
         mouseMovement.enabled = IsOwner;
         playerInput.enabled = IsOwner;

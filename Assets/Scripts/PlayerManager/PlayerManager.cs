@@ -39,18 +39,12 @@ public class PlayerManager : NetworkBehaviour, IUpdateable
     
     public void CustomUpdate(float deltaTime)
     {
-        foreach (var player in players)
-        {
-            player.Value.CustomUpdate(deltaTime);
-        }
+        Player.Instance.CustomUpdate(deltaTime);
     }
 
     public void CustomFixedUpdate(float fixedDeltaTime)
     {
-        foreach (var player in players)
-        {
-            player.Value.CustomFixedUpdate(fixedDeltaTime);
-        }
+        Player.Instance.CustomFixedUpdate(fixedDeltaTime);
     }
 
     private void SpawnPlayer(ulong clientId)
