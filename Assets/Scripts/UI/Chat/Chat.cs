@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,13 +7,23 @@ public class Chat : NetworkBehaviour
     [SerializeField] private GameObject message;
     
     [SerializeField] private GameObject messageBox;
+    
+    [SerializeField] private TMP_InputField inputField;
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SendMessageToServerRpc("test text");
-        }
+        inputField.onSubmit.AddListener(SendMessageCallback);
+    }
+
+    private void OnDisable()
+    {
+        inputField.onSubmit.RemoveListener(SendMessageCallback);
+    }
+
+    private void SendMessageCallback(string text)
+    {
+        SendMessageToServerRpc(inputField.text);
+        inputField.text = "";
     }
 
     [Rpc(SendTo.Server, Delivery = RpcDelivery.Reliable)]
