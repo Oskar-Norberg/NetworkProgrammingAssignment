@@ -10,6 +10,9 @@ public class Player : NetworkBehaviour
 
     [SerializeField] private PlayerMovementController movementController;
 
+    
+    // TODO: Set this via UI somehow.
+    // Make a proper set name system. Where the player tries a name, sends it to the server and gets back whether or not it is taken.
     private string name = "test name";
     
     public override void OnNetworkSpawn()
