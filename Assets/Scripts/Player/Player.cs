@@ -14,7 +14,7 @@ public class Player : NetworkBehaviour, IUpdateable
     
     // TODO: Set this via UI somehow.
     // Make a proper set name system. Where the player tries a name, sends it to the server and gets back whether or not it is taken.
-    private string name = "test name";
+    private new string name = "NAME_NOT_INITIALIZED";
     
     public override void OnNetworkSpawn()
     {

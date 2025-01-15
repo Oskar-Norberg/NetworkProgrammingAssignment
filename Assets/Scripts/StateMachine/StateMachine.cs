@@ -9,7 +9,7 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         // Start in PlayingState
-        SwitchState<PlayingState>();
+        SwitchState<EnterNameState>();
     }
 
     public void SwitchState<TNextState>()
