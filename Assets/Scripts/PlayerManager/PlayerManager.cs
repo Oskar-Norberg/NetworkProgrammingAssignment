@@ -23,17 +23,18 @@ public class PlayerManager : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        print("0");
         if (!IsServer || !IsHost) return;
-        print("1");
+        
         NetworkManager.OnClientConnectedCallback += SpawnPlayer;
-        print("2");
+        NetworkManager.OnClientDisconnectCallback += DespawnPlayer;
+        
         SpawnPlayer(this.OwnerClientId);
     }
 
     public override void OnNetworkDespawn()
     {
         NetworkManager.OnClientConnectedCallback -= SpawnPlayer;
+        NetworkManager.OnClientDisconnectCallback -= DespawnPlayer;
     }
 
     private void SpawnPlayer(ulong clientId)
@@ -43,6 +44,11 @@ public class PlayerManager : NetworkBehaviour
         NetworkObject player = spawnManager.InstantiateAndSpawn(playerPrefab, clientId);
         
         players[clientId] = player.GetComponent<Player>();
+    }
+    
+    private void DespawnPlayer(ulong clientId)
+    {
+        players[clientId].GetComponent<NetworkObject>().Despawn();
     }
 
     public Player GetPlayer(ulong clientId)
