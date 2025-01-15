@@ -7,6 +7,8 @@ public class PauseState : GameState
     
     public override void EnterState(StateMachine stateMachine)
     {
+        Cursor.lockState = CursorLockMode.None;
+        
         pauseMenu.EnablePauseMenu();
         chatMenu.SetActive(false);
     }
