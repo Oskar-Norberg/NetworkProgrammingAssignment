@@ -2,7 +2,7 @@ using Unity.Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerCameraController : NetworkBehaviour
+public class PlayerCameraController : NetworkBehaviour, IUpdateable
 {
     [SerializeField] private PlayerMouseMovement mouseMovement;
 
@@ -24,8 +24,8 @@ public class PlayerCameraController : NetworkBehaviour
         thirdPersonFollow.enabled = IsOwner;
         thirdPersonAim.enabled = IsOwner;
     }
-
-    private void Update()
+    
+    public void CustomUpdate(float deltaTime)
     {
         Vector2 mouseVector = mouseMovement.GetMouseMovement();
         float y = sensitivity * mouseVector.x;
@@ -36,5 +36,10 @@ public class PlayerCameraController : NetworkBehaviour
         
         // Rotate camera-pivot around x-axis.
         cameraPivotTransform.Rotate(x, 0.0f, 0.0f);
+    }
+
+    public void CustomFixedUpdate(float fixedDeltaTime)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class Player : NetworkBehaviour
+public class Player : NetworkBehaviour, IUpdateable
 {
     [SerializeField] private PlayerMouseMovement mouseMovement;
     [SerializeField] private PlayerInput playerInput;
@@ -25,5 +25,17 @@ public class Player : NetworkBehaviour
         cameraController.enabled = IsOwner;
         
         movementController.enabled = IsOwner;
+    }
+
+    public void CustomUpdate(float deltaTime)
+    {
+        cameraController.CustomUpdate(deltaTime);
+        movementController.CustomUpdate(deltaTime);
+    }
+
+    public void CustomFixedUpdate(float fixedDeltaTime)
+    {
+        cameraController.CustomFixedUpdate(fixedDeltaTime);
+        movementController.CustomFixedUpdate(fixedDeltaTime);
     }
 }

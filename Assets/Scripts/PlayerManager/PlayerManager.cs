@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerManager : NetworkBehaviour
+public class PlayerManager : NetworkBehaviour, IUpdateable
 {
     [SerializeField] private NetworkObject playerPrefab;
 
@@ -35,6 +35,16 @@ public class PlayerManager : NetworkBehaviour
     {
         NetworkManager.OnClientConnectedCallback -= SpawnPlayer;
         NetworkManager.OnClientDisconnectCallback -= DespawnPlayer;
+    }
+    
+    public void CustomUpdate(float deltaTime)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CustomFixedUpdate(float fixedDeltaTime)
+    {
+        throw new NotImplementedException();
     }
 
     private void SpawnPlayer(ulong clientId)

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour, IUpdateable
 {
     [SerializeField] private new Rigidbody rigidbody;
 
@@ -9,8 +9,13 @@ public class PlayerMovementController : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private float maxSpeed;
-    
-    private void FixedUpdate()
+
+    public void CustomUpdate(float deltaTime)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void CustomFixedUpdate(float fixedDeltaTime)
     {
         Vector2 wishDir = playerInput.GetNormalizedInputDirection();
         Vector3 wishDir3D = new Vector3(wishDir.x, 0, wishDir.y);
