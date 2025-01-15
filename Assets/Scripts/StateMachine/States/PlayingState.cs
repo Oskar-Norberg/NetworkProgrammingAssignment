@@ -4,6 +4,7 @@ public class PlayingState : GameState
 {
     public override void EnterState(StateMachine stateMachine)
     {
+        Cursor.lockState = CursorLockMode.Locked;
         Debug.Log("Entered PlayingState");
     }
 
@@ -14,6 +15,11 @@ public class PlayingState : GameState
 
     public override void UpdateState(StateMachine stateMachine)
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            stateMachine.SwitchState<ChatState>();
+        }
+        
         PlayerManager.Instance.CustomUpdate(Time.deltaTime);
     }
     

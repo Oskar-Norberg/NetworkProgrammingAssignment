@@ -5,10 +5,24 @@ using UnityEngine;
 public class Chat : NetworkBehaviour
 {
     [SerializeField] private GameObject message;
-    
     [SerializeField] private GameObject messageBox;
     
     [SerializeField] private TMP_InputField inputField;
+    
+    public delegate void OnMessageSent();
+    public event OnMessageSent onMessageSent;
+
+    public void EnableInputField()
+    {
+        inputField.gameObject.SetActive(true);
+        inputField.ActivateInputField();
+    }
+
+    public void DisableInputField()
+    {
+        inputField.gameObject.SetActive(false);
+        inputField.DeactivateInputField();
+    }
 
     private void OnEnable()
     {
@@ -22,6 +36,7 @@ public class Chat : NetworkBehaviour
 
     private void SendMessageCallback(string text)
     {
+        onMessageSent?.Invoke();
         SendMessageToServerRpc(inputField.text);
         inputField.text = "";
     }
