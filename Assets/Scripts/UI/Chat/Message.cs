@@ -8,7 +8,7 @@ public class Message : MonoBehaviour
 
     public void SetMessage(string senderName, string message)
     {
-        nameText.text = name;
+        nameText.text = senderName;
         messageText.text = message;
     }
 }

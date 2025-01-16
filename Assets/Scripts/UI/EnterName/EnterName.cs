@@ -11,7 +11,7 @@ public class EnterName : MonoBehaviour
     
     public void SetName()
     {
-        Player.Instance.name = inputField.text;
+        Player.Instance.playerName.Value = inputField.text;
         onNameEntered?.Invoke();
     }
 

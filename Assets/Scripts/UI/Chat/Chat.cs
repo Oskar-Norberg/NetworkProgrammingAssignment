@@ -47,7 +47,7 @@ public class Chat : NetworkBehaviour
         if (!IsServer || !IsHost) return;
 
         ulong playerId = rpcParams.Receive.SenderClientId;
-        string messageName = PlayerManager.Instance.GetPlayer(playerId).name;
+        string messageName = PlayerManager.Instance.GetPlayer(playerId).playerName.Value + "";
         
         SendMessageToEveryoneRpc(messageName, messageText);
     }
