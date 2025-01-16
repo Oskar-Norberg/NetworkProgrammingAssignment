@@ -7,7 +7,7 @@ public class EnterName : MonoBehaviour
     public delegate void OnNameEntered();
     public event OnNameEntered onNameEntered;
     
-    [SerializeField] TMP_InputField inputField;
+    [SerializeField] private TMP_InputField inputField;
     
     public void SetName()
     {
