@@ -6,12 +6,6 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private List<GameState> states = new List<GameState>();
     private GameState currentState;
 
-    private void Start()
-    {
-        // Start in PlayingState
-        SwitchState<EnterNameState>();
-    }
-
     public void SwitchState<TNextState>()
     {
         foreach (GameState state in states)
