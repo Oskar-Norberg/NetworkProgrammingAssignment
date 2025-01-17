@@ -17,11 +17,11 @@ public class CubeSpawner : NetworkBehaviour
         spawnPos.y += spawnOffset;
         
         NetworkManager.Singleton.SpawnManager.InstantiateAndSpawn(cubePrefab, 
-            NetworkManager.ServerClientId, 
-            false, 
-            false, 
-            false, 
-            spawnPos, 
+            NetworkManager.ServerClientId,
+            false,
+            false,
+            false,
+            spawnPos,
             Quaternion.identity);
     }
 }
