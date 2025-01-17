@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5958953959119873162}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +338,41 @@ MonoBehaviour:
   playerInput: {fileID: 7886768812940009639}
   cameraController: {fileID: 5393185217147235011}
   movementController: {fileID: 5958953959119873162}
+  playerName:
+    m_InternalValue:
+      utf8LengthInBytes: 20
+      bytes:
+        offset0000:
+          byte0000: 78
+          byte0001: 65
+          byte0002: 77
+          byte0003: 69
+          byte0004: 95
+          byte0005: 78
+          byte0006: 79
+          byte0007: 84
+          byte0008: 95
+          byte0009: 73
+          byte0010: 78
+          byte0011: 73
+          byte0012: 84
+          byte0013: 73
+          byte0014: 65
+          byte0015: 76
+        byte0016: 73
+        byte0017: 90
+        byte0018: 69
+        byte0019: 68
+        byte0020: 0
+        byte0021: 0
+        byte0022: 0
+        byte0023: 0
+        byte0024: 0
+        byte0025: 0
+        byte0026: 0
+        byte0027: 0
+        byte0028: 0
+        byte0029: 0
 --- !u!114 &7886768812940009639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +425,7 @@ GameObject:
   - component: {fileID: 6346880367559302848}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
